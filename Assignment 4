@@ -1,0 +1,70 @@
+# BT-101 Engineering Chemistry - Assignment 4
+# IR Functional Group Identification
+# Faculty: Dr Namita Saxena
+
+# Dictionary of IR absorption ranges and functional groups
+ir_groups = {
+    "C=O (Carbonyl)":       (1650, 1750),
+    "O-H (Alcohol/Carboxylic Acid)": (3200, 3600),
+    "C-H (Alkane)":         (2850, 3000),
+    "N-H (Amine/Amide)":    (3300, 3500),
+    "C=C (Alkene)":         (1620, 1680),
+    "C≡C (Alkyne)":         (2100, 2260),
+    "C≡N (Nitrile)":        (2200, 2260),
+    "C-O (Ether/Ester)":    (1000, 1300),
+    "C=O (Ester)":          (1735, 1750),
+    "O-H (Broad, Carboxylic)": (2500, 3300),
+    "C-Cl (Chloro)":        (600,  800),
+    "C-Br (Bromo)":         (500,  600),
+}
+
+print("=" * 50)
+print("   IR Functional Group Identification Tool")
+print("   BT-101 Engineering Chemistry")
+print("=" * 50)
+
+while True:
+    print("\nOptions:")
+    print("  1. Identify Functional Group")
+    print("  2. Show All IR Ranges")
+    print("  3. Exit")
+
+    choice = input("\nEnter your choice (1/2/3): ").strip()
+
+    # ── Option 1: Identify ──────────────────────────
+    if choice == "1":
+        try:
+            wavenumber = float(input("Enter IR peak wavenumber (cm⁻¹): "))
+
+            print(f"\nWavenumber entered : {wavenumber} cm⁻¹")
+            print("-" * 50)
+
+            found = False
+            for group, (low, high) in ir_groups.items():
+                if low <= wavenumber <= high:
+                    print(f"✔ Probable Functional Group : {group}")
+                    print(f"  Absorption Range          : {low}–{high} cm⁻¹")
+                    found = True
+
+            if not found:
+                print("✘ No matching functional group found.")
+                print("  The entered wavenumber may not match")
+                print("  any common IR absorption range.")
+
+        except ValueError:
+            print("⚠ Invalid input! Please enter a numeric value.")
+
+    # ── Option 2: Show all ranges ───────────────────
+    elif choice == "2":
+        print(f"\n{'Functional Group':<35} {'Range (cm⁻¹)'}")
+        print("-" * 50)
+        for group, (low, high) in ir_groups.items():
+            print(f"{group:<35} {low}–{high}")
+
+    # ── Option 3: Exit ──────────────────────────────
+    elif choice == "3":
+        print("\nExiting program. Good luck with your assignment!")
+        break
+
+    else:
+        print("⚠ Invalid choice! Please enter 1, 2, or 3.")
