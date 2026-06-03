@@ -1,0 +1,24 @@
+python# BT-101 Engineering Chemistry - Assignment 1
+# Wavelength to Frequency and Wavenumber Conversion
+# Faculty: Dr Namita Saxena
+
+# Speed of light in cm/s
+c = 3e10  # 3 × 10^10 cm/s
+
+# Take input from user
+wavelength_um = float(input("Enter wavelength in micrometres (µm): "))
+
+# Convert micrometres to centimetres (1 µm = 1e-4 cm)
+wavelength_cm = wavelength_um * 1e-4
+
+# Calculate frequency: v = c / λ
+frequency = c / wavelength_cm
+
+# Calculate wavenumber: v̄ = 1 / λ
+wavenumber = 1 / wavelength_cm
+
+# Display results
+print("\n--- Results ---")
+print(f"Wavelength       : {wavelength_um} µm")
+print(f"Frequency (v)    : {frequency:.4e} Hz")
+print(f"Wavenumber (v̄)   : {wavenumber:.2f} cm⁻¹")
