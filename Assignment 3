@@ -1,0 +1,26 @@
+# BT-101 Engineering Chemistry - Assignment 3
+# Beer-Lambert Law Calculator (UV Spectroscopy)
+# Faculty: Dr Namita Saxena
+
+print("=" * 45)
+print("   Beer-Lambert Law Calculator")
+print("   UV Spectroscopy - Concentration Finder")
+print("=" * 45)
+
+# Take inputs manually from user
+A = float(input("\nEnter Absorbance (A)                     : "))
+epsilon = float(input("Enter Molar Absorptivity (ε) in L/mol·cm : "))
+l = float(input("Enter Path Length (l) in cm              : "))
+
+# Formula: A = ε × c × l
+# Rearranged: c = A / (ε × l)
+concentration = A / (epsilon * l)
+
+# Display Results
+print("\n--- Results ---")
+print(f"Absorbance (A)              : {A}")
+print(f"Molar Absorptivity (ε)      : {epsilon} L/mol·cm")
+print(f"Path Length (l)             : {l} cm")
+print(f"Concentration (c)           : {concentration:.6f} mol/L")
+print(f"Concentration (c)           : {concentration:.4e} mol/L")
+print("=" * 45)
